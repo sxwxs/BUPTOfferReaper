@@ -12,6 +12,8 @@ app = Flask(__name__)
 
 
 data_list = []
+data_col = ['company', 'org', 'title', 'industry,location', 'salary', 'bonus', 'package', 'note', 'hukou', 'level', 'type_', 'comments', 'key', 'time', 'difficulty']
+
 mark_list = []
 comment_list = []
 mark_queue = queue.Queue()
@@ -21,7 +23,10 @@ write_record_queue = queue.Queue()
 if os.path.exists('data.jl'):
     with open('data.jl', encoding='utf8') as f:
         for l in f:
-            data_list.append(json.loads(l))
+            record = json.loads(l)
+            if len(record) < len(data_col):
+                record += [''] * (len(data_col)-len(data_list))
+            data_list.append(record)
             mark_list.append([0, 0])
             comment_list.append([])
     if os.path.exists('marks.log'):
@@ -93,6 +98,7 @@ def submit_api():
         type_ = request.form['type']
         comments = request.form['comments']
         key = request.form['key']
+        difficulty = request.form['difficulty']
         if not key or not key.isdigit(): # 如果 key 为空或非法，则生成新的 key
             key, private = rsa.newkeys(512)
             assert key.e == 65537
@@ -100,7 +106,7 @@ def submit_api():
             n, e, d, p, q = private.n, private.e, private.d, private.p, private.q
         else:
             key = int(key)
-        record = [company, org, title,industry,location, salary, bonus, package, note, hukou, level, type_,comments,key,time.time()]
+        record = [company, org, title,industry,location, salary, bonus, package, note, hukou, level, type_, comments, key, time.time(), difficulty]
         record_str = json.dumps(record, ensure_ascii=False) + '\n'
         write_record_queue.put(record_str)
         mark_list.append([0, 0])

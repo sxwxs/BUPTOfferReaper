@@ -32,10 +32,8 @@
 			<p>{{info[3]}}</p>
 			<h3>城市</h3>
 			<p>{{info[4]}}</p>
-			<h3>月薪</h3>
-			<p>{{info[5]}}</p>
-			<h3>绩效</h3>
-			<p>{{info[6]}}</p>
+			<h3>薪酬</h3>
+			<p>{{info[5]}}×{{info[6]}}</p>
 			<h3>总包</h3>
 			<p>{{info[7]}}</p>
 			<h3>说明</h3>
@@ -48,12 +46,14 @@
 			<p>{{info[11]}}</p>
 			<h3>备注</h3>
 			<p>{{info[12]}}</p>
+			<h3>难度/需要的技能</h3>
+			<p>{{info[15]}}</p>
 			<h3>公钥</h3>
 			<p>{{info[13]}}</p>
 			<hr>
 			<h2>评论</h2>
 			{% for c in comment %}
-				<p>{{loop.index}}楼</p>
+				<p># {{loop.index}}楼</p>
 				<p>{{c}}</p>
 			{% endfor %}
 		  <div class="form-group">
