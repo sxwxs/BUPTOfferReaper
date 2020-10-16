@@ -27,13 +27,11 @@ if os.path.exists('data.jl'):
     if os.path.exists('marks.log'):
         with open('marks.log', encoding='utf8') as f:
             for l in f:
-                print(l.split('\t'))
                 i, x, _, _ = l.split('\t')
                 mark_list[int(i)][int(x)] += 1
     if os.path.exists('comments.log'):
         with open('comments.log', encoding='utf8') as f:
             for l in f:
-                
                 i, x, _, _ = l.split('\t')
                 comment_list[int(i)].append(x)
 
