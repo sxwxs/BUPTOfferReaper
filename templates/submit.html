@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit</title>
+</head>
+<body>
+<p></p>
+<div class="container">
+<form action='/api/submit/' method='post'>
+      <div class="form-group">
+         <label>公司</label>
+         <input type="text" class="form-control" name="company" placeholder="公司">
+      </div>
+      <div class="form-group">
+         <label>部门（可不填）</label>
+         <input type="text" class="form-control" name="org" placeholder="部门">
+      </div>
+      <div class="form-group">
+         <label>岗位</label>
+         <input type="text" class="form-control" name="title" placeholder="岗位">
+      </div>
+      <div class="form-group">
+         <label>行业（可不填）</label>
+         <input type="text" class="form-control" name="industry" placeholder="行业">
+      </div>
+      <div class="form-group">
+         <label>城市</label>
+         <input type="text" class="form-control" name="location" placeholder="城市">
+      </div>
+	  <hr>
+	  <h4>以下四项选填一个即可，也可多填</h4>
+      <div class="form-group">
+         <label>月薪（单位为千 RMB）</label>
+         <input type="number" class="form-control" name="salary" placeholder="月薪，如 25">
+      </div>
+      <div class="form-group">
+         <label>绩效（月，如 12~15）</label>
+         <input type="number" class="form-control" name="bonus" placeholder="绩效，如 15">
+      </div>
+      <div class="form-group">
+         <label>年薪总包（单位为万 RMB）</label>
+         <input type="number" class="form-control" name="package" placeholder="年薪总包，如 37.5">
+      </div>
+      <div class="form-group">
+         <label>薪资说明</label>
+         <input type="text" class="form-control" name="note" placeholder="薪资说明">
+      </div>
+	  <hr>
+      <div class="form-group">
+         <label>户口</label>
+         <select  class="form-control"  name='hukou'>
+			<option value='无'>无</option>
+			<option value='积分落户'>积分落户</option>
+			<option value='有'>有</option>
+			<option value='抽签'>抽签</option>
+			<option value='排名'>排名</option>
+			<option value='不一定'>不一定</option>
+		 </select>
+      </div>
+      <div class="form-group">
+         <label>学历</label>
+         <select  class="form-control" name='level'>
+			<option value='本科'>本科</option>
+			<option value='硕士'>硕士</option>
+			<option value='博士'>博士</option>
+			<option value='其他'>其他</option>
+		 </select>
+      </div>
+      <div class="form-group">
+         <label>类型</label>
+         <select  class="form-control" name='type'>
+			<option value='秋招'>秋招</option>
+			<option value='春招'>春招</option>
+			<option value='实习'>实习</option>
+			<option value='社招'>社招</option>
+			<option value='其他'>其他</option>
+			<option value='经验分享'>经验分享</option>
+			<option value='咨询'>咨询</option>
+		 </select>
+      </div>
+      <div class="form-group">
+         <label>备注</label>
+         <input type="text" class="form-control" name="comments" placeholder="备注">
+      </div>
+      <div class="form-group">
+         <label>我的公钥（可不填，不填则自动生成，由于后续修改删除时验证身份）</label>
+         <input type="number" class="form-control" name="key" placeholder="如：6784322051629031881408523297324130590001842102128578490860171232329247390873936302210918876441161198773049630649579008642679546902640096383549367060319727">
+		 <p>说明：如果以后您想修改或删除这个记录，请务必保留好该公钥对应的私钥。如果留空会自动生成一对密钥，并在提交成功后显示密钥内容</p>
+      </div>
+      <button href='javascript:void(0)' class="btn btn-primary">提交</a>
+	  </form>
+      
+    </div>
+  </div>
+</body>
+</html>

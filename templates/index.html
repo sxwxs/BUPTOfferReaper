@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Reaper</title>
+</head>
+<body>
+<p></p>
+<div class="container">
+      <h3>收录 Offer 数量：{{offer_cnt}}</h3>
+      <h3>系统状态： {{status}}</h3>
+	  <h3><a href='/submit/'>提交</a></h3>
+      <!--hr>
+      <h2>筛选结果</h2>
+	  <form>
+      <div class="form-group">
+         <label>公司</label>
+         <input type="text" class="form-control" id="company" placeholder="公司">
+      </div>
+      <div class="form-group">
+         <label>岗位</label>
+         <input type="number" class="form-control" id="title" placeholder="岗位">
+      </div>
+      <div class="form-group">
+         <label>城市</label>
+         <input type="number" class="form-control" id="location" placeholder="城市">
+      </div>
+      <a href='javascript:void(0)' class="btn btn-primary" onclick="submit_task()">查看</a>
+	  </form-->
+      <hr>
+       <div>
+           <p>最新发布</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>公司</th>
+                    <th>职位</th>
+                    <th>行业</th>
+                    <th>位置</th>
+                    <th>薪水</th>
+                    <th>类型</th>
+                    <th>户口</th>
+                    <th>详情</th>
+                </tr>
+            <thead>
+            <tbody>
+                {% for t in data_list %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{t[0]}}</td>
+                    <td>{{t[2]}}</td>
+                    <td>{{t[3]}}</td>
+                    <td>{{t[4]}}</td>
+                    <td>{{t[5]}}k*{{t[6]}}（{{t[7]}}w）</td>
+                    <td>{{t[9]}}</td>
+                    <td>{{t[11]}}</td>
+                    <td><a href='/view/{{loop.index0}}/'>查看</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</body>
+</html>
