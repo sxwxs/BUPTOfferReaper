@@ -106,6 +106,7 @@ def submit_api():
             n, e, d, p, q = private.n, private.e, private.d, private.p, private.q
         else:
             key = int(key)
+            n, e, d, p, q = '', '', '', '', ''
         record = [company, org, title,industry,location, salary, bonus, package, note, hukou, level, type_, comments, key, time.time(), difficulty]
         record_str = json.dumps(record, ensure_ascii=False) + '\n'
         write_record_queue.put(record_str)
