@@ -104,16 +104,17 @@ def submit_api():
             assert key.e == 65537
             key = key.n
             n, e, d, p, q = private.n, private.e, private.d, private.p, private.q
+            private_key='%d,%d,%d,%d,%d' % (n, e, d, p, q)
         else:
             key = int(key)
-            n, e, d, p, q = '', '', '', '', ''
+            private_key = ''
         record = [company, org, title,industry,location, salary, bonus, package, note, hukou, level, type_, comments, key, time.time(), difficulty]
         record_str = json.dumps(record, ensure_ascii=False) + '\n'
         write_record_queue.put(record_str)
         mark_list.append([0, 0])
         comment_list.append([])
         data_list.append(record)
-        return render_template('submit_result.html', public_key=str(key), private_key='%d,%d,%d,%d,%d' % (n, e, d, p, q))
+        return render_template('submit_result.html', public_key=str(key), private_key=private_key)
     else:
         return ''
 
