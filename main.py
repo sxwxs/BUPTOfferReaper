@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 def migrate_from_jl():
     data_list = []
-    data_col = ['company', 'org', 'title', 'industry,location', 'salary', 'bonus', 'package', 'note', 'hukou', 'level',
+    data_col = ['company', 'org', 'title', 'industry', 'location', 'salary', 'bonus', 'package', 'note', 'hukou', 'level',
                 'type_', 'comments', 'key', 'time', 'difficulty']
 
     mark_list = []
@@ -103,7 +103,7 @@ def submit_api():
         offer.save()
 
         return render_template('submit_result.html', public_key=str(key), private_key=private_key)
-        return ''
+    return ''
 
 
 @app.route('/view/<int:id_>/')
