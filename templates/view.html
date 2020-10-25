@@ -21,40 +21,40 @@
 <p></p>
 <div class="container">
        <div>
-			<h4><a href='javascript:void(0)' onclick="mark(0)">顶 {{mark[0]}}</a> / <a href='javascript:void(0)' onclick="mark(1)">踩 {{mark[1]}}</a></h4>
+			<h4><a href='javascript:void(0)' onclick="mark(0)">顶 {{offer.up_count}}</a> / <a href='javascript:void(0)' onclick="mark(1)">踩 {{offer.down_count}}</a></h4>
 			<h3>公司</h3>
-			<p>{{info[0]}}</p>
+			<p>{{offer.company}}</p>
 			<h3>部门</h3>
-			<p>{{info[1]}}</p>
+			<p>{{offer.org}}</p>
 			<h3>职位</h3>
-			<p>{{info[2]}}</p>
+			<p>{{offer.title}}</p>
 			<h3>行业</h3>
-			<p>{{info[3]}}</p>
+			<p>{{offer.industry}}</p>
 			<h3>城市</h3>
-			<p>{{info[4]}}</p>
+			<p>{{offer.location}}</p>
 			<h3>薪酬</h3>
-			<p>{{info[5]}}×{{info[6]}}</p>
+			<p>{{offer.salary}}×{{offer.bonus}}</p>
 			<h3>总包</h3>
-			<p>{{info[7]}}</p>
+			<p>{{offer.package}}</p>
 			<h3>说明</h3>
-			<p>{{info[8]}}</p>
+			<p>{{offer.note}}</p>
 			<h3>户口</h3>
-			<p>{{info[9]}}</p>
+			<p>{{offer.hukou}}</p>
 			<h3>学历</h3>
-			<p>{{info[10]}}</p>
+			<p>{{offer.level}}</p>
 			<h3>类型</h3>
-			<p>{{info[11]}}</p>
+			<p>{{offer.type_}}</p>
 			<h3>备注</h3>
-			<p>{{info[12]}}</p>
+			<p>{{offer.comments}}</p>
 			<h3>难度/需要的技能</h3>
-			<p>{{info[15]}}</p>
+			<p>{{offer.difficulty}}</p>
 			<h3>公钥</h3>
-			<p>{{info[13]}}</p>
+			<p>{{offer.key}}</p>
 			<hr>
 			<h2>评论</h2>
-			{% for c in comment %}
+			{% for c in offer.user_comments %}
 				<p># {{loop.index}}楼</p>
-				<p>{{c}}</p>
+				<p>{{c.comment}}</p>
 			{% endfor %}
 		  <div class="form-group">
 			 <label>添加评论</label>
