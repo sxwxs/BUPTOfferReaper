@@ -9,7 +9,7 @@
 ## 安装依赖
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## 运行

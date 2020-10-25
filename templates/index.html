@@ -58,17 +58,17 @@
                 </tr>
             <thead>
             <tbody>
-                {% for t in data_list %}
+                {% for offer in data_list %}
                 <tr>
-                    <td>{{loop.index}}</td>
-                    <td>{{t[0]}}</td>
-                    <td>{{t[2]}}</td>
-                    <td>{{t[3]}}</td>
-                    <td>{{t[4]}}</td>
-                    <td>{{t[5]}}k*{{t[6]}}（{{t[7]}}w）</td>
-                    <td>{{t[11]}}</td>
-                    <td>{{t[9]}}</td>
-                    <td><a href='/view/{{loop.index0}}/'>查看</a></td>
+                    <td>{{offer.id}}</td>
+                    <td>{{offer.company}}</td>
+                    <td>{{offer.title}}</td>
+                    <td>{{offer.industry}}</td>
+                    <td>{{offer.location}}</td>
+                    <td>{{offer.salary}}k*{{offer.bonus}}（{{offer.package}}w）</td>
+                    <td>{{offer.type_}}</td>
+                    <td>{{offer.hukou}}</td>
+                    <td><a href='/view/{{offer.id}}/'>查看</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
