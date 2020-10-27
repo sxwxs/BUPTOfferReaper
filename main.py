@@ -96,6 +96,7 @@ def submit_api():
             private_key='%d,%d,%d,%d,%d' % (n, e, d, p, q)
         else:
             key = int(key)
+            private_key = ''
 
         offer.key = key
         offer.created = time.time()
