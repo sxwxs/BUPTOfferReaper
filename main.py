@@ -2,14 +2,31 @@ import os
 import json
 import time
 import queue
+import requests
 import threading
 
 import rsa
+import buptgw
 from flask import Flask, request, render_template, session, redirect, url_for
 
 from models import Offer, Comment, Mark, db
 
 app = Flask(__name__)
+
+
+REPORT_URL_ENV_KEY = "DB_URI"
+
+report_url = os.environ[REPORT_URL_ENV_KEY] if REPORT_URL_ENV_KEY in os.environ else ""
+
+if report_url:
+    def heart_beat_report():
+        while True:
+            r = requests.get(report_url)
+            if r.text != 'ok':
+                print('error heart beat report', r.text)
+            time.sleep(500)
+    t = threading.Thread(target=heart_beat_report)
+    t.start()
 
 
 def migrate_from_jl():
