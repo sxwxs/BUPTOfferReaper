@@ -7,3 +7,4 @@ peewee==3.13.3
 pyasn1==0.4.8
 rsa==4.6
 Werkzeug==1.0.1
+requests
